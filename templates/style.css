@@ -39,7 +39,7 @@ h2{font-size:1.3rem;color:var(--ink);margin:34px 0 10px}
 .ck p{margin:0 0 8px}.ck button{min-height:44px;padding:0 18px;border-radius:8px;border:0;background:var(--ink);color:#fff;font:inherit;margin-right:8px;cursor:pointer}.ck .sec{background:#e7eef6;color:var(--ink)}
 :focus-visible{outline:3px solid var(--sun);outline-offset:2px}
 .avisos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 6px}
-.aviso{position:relative;display:grid;grid-template-columns:56px 1fr;grid-template-rows:auto auto;column-gap:14px;align-items:center;min-height:132px;border-radius:16px;padding:16px 18px;text-decoration:none;color:#fff;overflow:hidden;box-shadow:0 8px 24px rgba(14,36,64,.16);transition:transform .2s}
+.aviso{position:relative;display:grid;grid-template-columns:56px 1fr;grid-template-rows:auto auto;column-gap:14px;align-items:center;min-height:132px;border-radius:16px;padding:26px 18px 16px;text-decoration:none;color:#fff;overflow:hidden;box-shadow:0 8px 24px rgba(14,36,64,.16);transition:transform .2s}
 .aviso:hover{transform:translateY(-2px)}
 .av-searchlab{background:linear-gradient(120deg,#2a2a2a,#3d3d3d 60%,#4a3a26)}.av-bifrok{background:linear-gradient(120deg,#0b1a33,#0f3a52 60%,#0d5a5a)}
 .aviso:after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.16) 50%,transparent 60%);transform:translateX(-100%);animation:brillo 4.5s ease-in-out infinite}
