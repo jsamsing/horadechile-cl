@@ -1,6 +1,6 @@
 # Hora de Chile — horadechile.cl
 
-Sitio útil propio de Johans (red de sitios satélite, ver searchlab360-com/CLAUDE.md «Growth PROACTIVO»): hora oficial de Chile en vivo, cambio de hora y diferencia horaria. Avisos de la casa SOLO a searchlab.cl y Bifrok (resuelvealtiro.cl cuando esté publicado); nunca Pieza al Tiro ni ELCOM. Meta: que el dominio se pague solo a fin de año (avisos propios + AdSense cuando Johans lo reactive).
+Sitio útil de SearchLab (repo público: sin datos privados ni credenciales aquí): hora oficial de Chile en vivo, cambio de hora y diferencia horaria. Avisos de la casa SOLO a searchlab.cl y Bifrok (resuelvealtiro.cl cuando esté publicado); nunca Pieza al Tiro ni ELCOM. Monetización: avisos propios y AdSense.
 
 ## Stack
 - `content.py` (todo el texto y datos) + `templates/` (Jinja2, CSS y JS inline, sin terceros salvo GA4 con consentimiento) → `python3 build.py` → `dist/`. El build FALLA si title fuera de 50-60, description fuera de 100-160, JSON-LD inválido o enlace interno roto.
