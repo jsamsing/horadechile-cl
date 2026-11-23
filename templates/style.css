@@ -60,3 +60,4 @@ h2{font-size:1.3rem;color:var(--ink);margin:34px 0 10px}
 @media(max-width:700px){.rel2{grid-template-columns:1fr 1fr;margin-top:14px}.rel2 .hh time{font-size:1.6rem}.rel2 .ut{display:none}}
 .dif{font-size:1.1rem;margin:12px 0 0}
 .paises{columns:3 160px;padding-left:18px}.paises li{margin:4px 0}
+.av-red{position:absolute;top:8px;right:10px;font-size:.68rem;letter-spacing:.02em;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.14);color:rgba(255,255,255,.85);z-index:1}
