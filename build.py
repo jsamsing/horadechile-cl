@@ -72,7 +72,7 @@ def main():
         if not p.get("noindex") and not 50 <= len(p["title"]) <= 60: errores.append(f"title {len(p['title'])}: {p['path']}")
         if not 100 <= len(p["desc"]) <= 160: errores.append(f"description {len(p['desc'])}: {p['path']}")
         html = env.get_template(p["tpl"]).render(p=p, D=C.DOMINIO, MARCA=C.MARCA, CSS=css, JS=js, LD=ld(p), ZONAS=C.ZONAS, PAISES=C.PAISES,
-                                                 CAMBIOS=cambios, AVISOS=C.AVISOS, REVISADO_TXT=fecha_txt(C.REVISADO, dia=False))
+                                                 CAMBIOS=cambios, AVISOS=C.AVISOS, RED=C.RED, REVISADO_TXT=fecha_txt(C.REVISADO, dia=False))
         html = html.replace('<script type="application/ld+json">', '<script type="application/ld+json">', 1)
         json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', html, re.S).group(1).replace("<\\/", "</"))
         out = DIST / p["path"].strip("/") / "index.html"

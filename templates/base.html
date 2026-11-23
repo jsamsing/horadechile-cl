@@ -27,9 +27,10 @@
 {% if p.path != '/' %}<nav class="migas" aria-label="Migas"><a href="/">Inicio</a> › <span>{{ p.h1 }}</span></nav>{% endif %}
 <h1>{{ p.h1 }}</h1>
 {% if p.corta %}<p class="corta">{{ p.corta }}</p>{% endif %}
+{% if not p.noindex and p.path != '/' %}{% include "_avisos.html" %}{% endif %}
 {% block main %}{% endblock %}
 {% if p.faqs %}<section class="faq"><h2>Preguntas frecuentes</h2>{% for q, a in p.faqs %}<details{% if loop.first %} open{% endif %}><summary>{{ q }}</summary><p>{{ a }}</p></details>{% endfor %}</section>{% endif %}
-{% if not p.noindex %}<aside class="avisos" aria-label="Recomendados">{% for a in AVISOS %}<a class="aviso" href="{{ a.url }}" rel="sponsored noopener" target="_blank" data-ev="aviso_click" data-label="{{ a.id }}"><b>{{ a.titulo }}</b><span>{{ a.texto }}</span><em>{{ a.cta }}</em></a>{% endfor %}</aside>{% endif %}
+{% set otros = RED|selectattr("vivo")|rejectattr("url", "equalto", D ~ "/")|list %}{% if otros %}<section class="red"><h2>Más herramientas útiles</h2><ul>{% for r in otros %}<li><a href="{{ r.url }}" data-ev="red_click" data-label="{{ r.nombre }}"><b>{{ r.nombre }}</b> <span>{{ r.texto }}</span></a></li>{% endfor %}</ul></section>{% endif %}
 </main>
 <footer class="ft"><div class="wrap">
 <p><a href="/"><b>Hora de Chile</b></a> · Hora oficial de Chile y cambios de hora, explicados simple.</p>

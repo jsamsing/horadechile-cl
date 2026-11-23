@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block main %}
 <section class="relojes" aria-label="Hora actual en Chile">
-{% for z in ZONAS %}<div class="reloj{% if loop.first %} prin{% endif %}" data-tz="{{ z.tz }}">
+{% for z in ZONAS %}{% if loop.index == 2 %}</section>
+{% include "_avisos.html" %}
+<section class="relojes rel2" aria-label="Otras horas oficiales de Chile">{% endif %}<div class="reloj{% if loop.first %} prin{% endif %}" data-tz="{{ z.tz }}">
 <p class="zn">{{ z.nombre }}</p>
 <p class="hh"><time data-h>--:--:--</time></p>
 <p class="fd" data-f>&nbsp;</p>

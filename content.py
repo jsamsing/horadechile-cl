@@ -34,12 +34,20 @@ PAISES = [
     ("China", "Asia/Shanghai"), ("Japón", "Asia/Tokyo"), ("Australia (Sídney)", "Australia/Sydney"),
 ]
 
+# Red de sitios útiles (se enlazan entre sí; "vivo": True solo cuando el sitio ya está publicado)
+RED = [
+    {"url": "https://horadechile.cl/", "nombre": "Hora de Chile", "texto": "Hora exacta y cambio de hora", "vivo": True},
+    {"url": "https://feriados-de-chile.cl/", "nombre": "Feriados de Chile", "texto": "Feriados y fines de semana largos", "vivo": False},
+    {"url": "https://calculadora-chile.cl/", "nombre": "Calculadora Chile", "texto": "Sueldo líquido, IVA, UF y más", "vivo": False},
+    {"url": "https://formatos-chile.cl/", "nombre": "Formatos Chile", "texto": "Cartas, contratos y formularios", "vivo": False},
+]
+
 # Avisos de la casa (solo proyectos propios autorizados: searchlab.cl y Bifrok; resuelvealtiro.cl cuando esté publicado)
 AVISOS = [
-    {"id": "searchlab", "url": "https://www.searchlab.cl/?utm_source=horadechile&utm_medium=aviso&utm_campaign=casa",
-     "titulo": "¿Tienes un negocio?", "texto": "Página web, Google Maps y presencia en buscadores con IA desde $9.990 al mes.", "cta": "Ver planes en SearchLab.cl"},
-    {"id": "bifrok", "url": "https://bifrok.com/es-cl/?utm_source=horadechile&utm_medium=aviso&utm_campaign=casa",
-     "titulo": "¿Buscas internet para tu casa?", "texto": "Compara planes de fibra, TV y Starlink por comuna y habla directo con un vendedor.", "cta": "Comparar en Bifrok"},
+    {"id": "searchlab", "icono": "pin", "url": "https://www.searchlab.cl/?utm_source=horadechile&utm_medium=aviso&utm_campaign=casa",
+     "titulo": "¿Tu negocio aparece en Google Maps?", "texto": "Página web, ficha de Google Maps y preparación para buscadores con IA desde $9.990 al mes.", "cta": "Ver planes"},
+    {"id": "bifrok", "icono": "wifi", "url": "https://bifrok.com/es-cl/?utm_source=horadechile&utm_medium=aviso&utm_campaign=casa",
+     "titulo": "¿Internet lento en tu casa?", "texto": "Compara fibra, TV y Starlink en tu comuna y habla directo con un vendedor.", "cta": "Comparar planes"},
 ]
 
 PAGINAS = [
