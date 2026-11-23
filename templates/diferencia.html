@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block main %}
+<section>
+<h2>Hora en otros países comparada con Chile</h2>
+<p class="mut">Comparado con Chile continental (Santiago): <b><time data-base>--:--</time></b></p>
+<table class="tb" data-dif><thead><tr><th scope="col">País</th><th scope="col">Hora ahora</th><th scope="col">Diferencia con Chile</th></tr></thead><tbody>
+{% for n, tz in PAISES %}<tr data-tz="{{ tz }}"><th scope="row">{{ n }}</th><td data-h>--:--</td><td data-d>—</td></tr>{% endfor %}
+</tbody></table>
+<p>Recuerda que Aysén y Magallanes no cambian la hora: en invierno tienen una hora más que Santiago. Revisa las fechas en <a href="/cambio-de-hora/">cambio de hora en Chile</a>.</p>
+</section>
+{% endblock %}

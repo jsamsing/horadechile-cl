@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="prox" data-prox>
+<h2>¿Cuánto falta?</h2>
+<p class="pc"><b data-pc-fecha>sábado 3 de abril de 2027, 24:00</b>: los relojes se <b data-pc-tipo>atrasan</b> una hora.</p>
+<p class="cd" aria-live="off">Faltan <span data-cd>…</span></p>
+</section>
+<section>
+<h2>Calendario de cambios de hora en Chile hasta 2029</h2>
+<table class="tb"><thead><tr><th scope="col">Fecha (24:00)</th><th scope="col">Qué hacer</th><th scope="col">Comienza</th></tr></thead><tbody>
+{% for c in CAMBIOS %}<tr><th scope="row">{{ c.txt }}</th><td>{{ 'Atrasar 1 hora' if c.tipo == 'atrasar' else 'Adelantar 1 hora' }}</td><td>Horario de {{ c.regimen }}</td></tr>{% endfor %}
+</tbody></table>
+<p class="mut">Aplica a Chile continental (salvo Aysén y Magallanes) e Isla de Pascua, según el Decreto Supremo N.º 98 de 2026.</p>
+</section>
+<section>
+<h2>Qué regiones cambian la hora</h2>
+<ul>
+<li><b>Cambian:</b> de Arica y Parinacota a Los Lagos, la Región Metropolitana e Isla de Pascua.</li>
+<li><b>No cambian:</b> Aysén y Magallanes, que mantienen UTC-3 todo el año.</li>
+</ul>
+<h2>Cómo prepararse para el cambio de hora</h2>
+<ul>
+<li>El celular y el computador se ajustan solos si tienen la hora automática activada.</li>
+<li>Ajusta a mano el reloj del auto, del horno, del microondas y las alarmas sin conexión.</li>
+<li>Si trabajas por turnos o viajas esa noche, confirma horarios: la noche de abril dura una hora más y la de septiembre, una menos.</li>
+</ul>
+</section>
+{% endblock %}

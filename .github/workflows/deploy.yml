@@ -1,0 +1,38 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ${{ fromJSON(vars.DEPLOY_RUNS_ON || '["self-hosted","oracle"]') }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Build (falla si title, description, JSON-LD o enlaces quedan mal)
+        run: |
+          python3 -m pip install -q -r requirements.txt --break-system-packages 2>/dev/null || python3 -m pip install -q -r requirements.txt
+          python3 build.py
+      - name: ¿Hay credenciales del hosting?
+        id: c
+        env:
+          H: ${{ secrets.FTP_HOST }}
+        run: if [ -n "$H" ]; then echo "ok=1" >> "$GITHUB_OUTPUT"; else echo "::warning::Faltan FTP_HOST/FTP_USER/FTP_PASS: build OK, no se publica."; echo "ok=0" >> "$GITHUB_OUTPUT"; fi
+      - name: Publicar por FTPS (incremental)
+        if: steps.c.outputs.ok == '1'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          protocol: ftps
+          local-dir: ./dist/
+          server-dir: ${{ vars.FTP_DIR || 'horadechile.cl/public_html/' }}
+      - name: IndexNow
+        if: steps.c.outputs.ok == '1'
+        continue-on-error: true
+        run: |
+          K=$(python3 -c "import content;print(content.INDEXNOW_KEY)")
+          curl -s -o /dev/null -w "%{http_code}\n" -H "Content-Type: application/json" -d "{\"host\":\"horadechile.cl\",\"key\":\"$K\",\"urlList\":[\"https://horadechile.cl/\",\"https://horadechile.cl/cambio-de-hora/\",\"https://horadechile.cl/diferencia-horaria/\"]}" https://api.indexnow.org/indexnow

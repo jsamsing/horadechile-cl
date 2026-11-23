@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="relojes" aria-label="Hora actual en Chile">
+{% for z in ZONAS %}<div class="reloj{% if loop.first %} prin{% endif %}" data-tz="{{ z.tz }}">
+<p class="zn">{{ z.nombre }}</p>
+<p class="hh"><time data-h>--:--:--</time></p>
+<p class="fd" data-f>&nbsp;</p>
+<p class="ut"><span data-u>{{ z.ver }}</span> · {{ z.detalle }}</p>
+</div>{% endfor %}
+</section>
+<section class="prox" data-prox>
+<h2>Próximo cambio de hora</h2>
+<p class="pc"><b data-pc-fecha>sábado 3 de abril de 2027, 24:00</b>: los relojes se <b data-pc-tipo>atrasan</b> una hora.</p>
+<p class="cd" aria-live="off">Faltan <span data-cd>…</span></p>
+<p><a href="/cambio-de-hora/">Calendario de cambios de hora hasta 2029</a></p>
+</section>
+<section>
+<h2>Husos horarios de Chile</h2>
+<table class="tb"><thead><tr><th scope="col">Zona</th><th scope="col">Invierno</th><th scope="col">Verano</th></tr></thead><tbody>
+{% for z in ZONAS %}<tr><th scope="row">{{ z.nombre }}</th><td>{{ z.inv }}</td><td>{{ z.ver }}</td></tr>{% endfor %}
+</tbody></table>
+<p>¿Hablas con alguien de otro país? Revisa la <a href="/diferencia-horaria/">diferencia horaria entre Chile y otros países</a>, calculada con la hora de hoy.</p>
+</section>
+{% endblock %}
