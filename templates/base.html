@@ -8,7 +8,7 @@
 {% if p.noindex %}<meta name="robots" content="noindex,follow">{% endif %}
 <link rel="canonical" href="{{ D }}{{ p.path }}">
 <meta property="og:type" content="website"><meta property="og:locale" content="es_CL"><meta property="og:site_name" content="{{ MARCA }}">
-<meta property="og:title" content="{{ p.h1 }}"><meta property="og:description" content="{{ p.corta[:150] if p.corta else p.desc }}"><meta property="og:url" content="{{ D }}{{ p.path }}">
+<meta property="og:title" content="{{ p.h1 }}"><meta property="og:description" content="{{ (p.corta or p.texto or p.desc)[:150] }}"><meta property="og:url" content="{{ D }}{{ p.path }}">
 <meta property="og:image" content="{{ D }}/og/{{ p.slug }}.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="{{ p.h1 }} — {{ MARCA }}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -27,7 +27,7 @@
 {% if p.path != '/' %}<nav class="migas" aria-label="Migas"><a href="/">Inicio</a> › <span>{{ p.h1 }}</span></nav>{% endif %}
 <h1>{{ p.h1 }}</h1>
 {% if p.corta %}<p class="corta">{{ p.corta }}</p>{% endif %}
-{% if not p.noindex and p.path != '/' %}{% include "_avisos.html" %}{% endif %}
+{% if not p.noindex and p.path != '/' and p.tpl != 'pais.html' %}{% include "_avisos.html" %}{% endif %}
 {% block main %}{% endblock %}
 {% if p.faqs %}<section class="faq"><h2>Preguntas frecuentes</h2>{% for q, a in p.faqs %}<details{% if loop.first %} open{% endif %}><summary>{{ q }}</summary><p>{{ a }}</p></details>{% endfor %}</section>{% endif %}
 {% set otros = RED|selectattr("vivo")|rejectattr("url", "equalto", D ~ "/")|list %}{% if otros %}<section class="red"><h2>Más herramientas útiles</h2><ul>{% for r in otros %}<li><a href="{{ r.url }}" data-ev="red_click" data-label="{{ r.nombre }}"><b>{{ r.nombre }}</b> <span>{{ r.texto }}</span></a></li>{% endfor %}</ul></section>{% endif %}

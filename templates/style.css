@@ -58,3 +58,5 @@ h2{font-size:1.3rem;color:var(--ink);margin:34px 0 10px}
 .red ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.red a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--tx)}.red a b{color:var(--ink);display:block}
 .rel2{grid-template-columns:1fr 1fr;margin-top:14px}.reloj.prin{grid-column:auto}.relojes:not(.rel2){grid-template-columns:1fr}
 @media(max-width:700px){.rel2{grid-template-columns:1fr 1fr;margin-top:14px}.rel2 .hh time{font-size:1.6rem}.rel2 .ut{display:none}}
+.dif{font-size:1.1rem;margin:12px 0 0}
+.paises{columns:3 160px;padding-left:18px}.paises li{margin:4px 0}

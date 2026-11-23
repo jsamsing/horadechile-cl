@@ -9,6 +9,8 @@ document.querySelectorAll('.reloj[data-tz]').forEach(function(r){var tz=r.datase
 var b=document.querySelector('[data-base]');if(b)b.textContent=fmtH('America/Santiago');
 var cl=off('America/Santiago');
 document.querySelectorAll('[data-dif] tr[data-tz]').forEach(function(r){var tz=r.dataset.tz,d=(off(tz)-cl)/60;r.querySelector('[data-h]').textContent=fmtH(tz);r.querySelector('[data-d]').textContent=d===0?'Misma hora':(d>0?'+':'−')+Math.abs(d)+(Math.abs(d)===1?' hora':' horas')});
+document.querySelectorAll('[data-difp]').forEach(function(e){var d=(off(e.dataset.tz)-cl)/60;e.querySelector('[data-dd]').textContent=d===0?'misma hora':(d>0?'+':'−')+Math.abs(d)+(Math.abs(d)===1?' hora':' horas')+(d>0?' (va por delante)':' (va detrás)')});
+document.querySelectorAll('[data-eq]').forEach(function(t){var d=off(t.dataset.tz)-cl;t.querySelectorAll('[data-eqh]').forEach(function(c){var p=c.dataset.eqh.split(':'),m=((+p[0])*60+(+p[1])+d)%1440,dia='';if(m<0){m+=1440;dia=' (día anterior)'}else if((+p[0])*60+d>=1440)dia=' (día siguiente)';c.textContent=('0'+Math.floor(m/60)).slice(-2)+':'+('0'+m%60).slice(-2)+dia})});
 var now=Date.now(),c=CAMBIOS.filter(function(x){return Date.parse(x.utc)>now})[0];
 document.querySelectorAll('[data-prox]').forEach(function(s){if(!c){s.hidden=true;return}
 s.querySelector('[data-pc-fecha]').textContent=c.txt+', 24:00';s.querySelector('[data-pc-tipo]').textContent=c.tipo==='atrasar'?'atrasan':'adelantan';

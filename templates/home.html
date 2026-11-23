@@ -21,6 +21,7 @@
 <table class="tb"><thead><tr><th scope="col">Zona</th><th scope="col">Invierno</th><th scope="col">Verano</th></tr></thead><tbody>
 {% for z in ZONAS %}<tr><th scope="row">{{ z.nombre }}</th><td>{{ z.inv }}</td><td>{{ z.ver }}</td></tr>{% endfor %}
 </tbody></table>
+<h2>Hora en otros países</h2><ul class="paises">{% for x in PAISES_PAG %}<li><a href="/hora-en-{{ x.slug }}/">Hora en {{ x.pais.split(" (")[0] }}</a></li>{% endfor %}</ul>
 <p>¿Hablas con alguien de otro país? Revisa la <a href="/diferencia-horaria/">diferencia horaria entre Chile y otros países</a>, calculada con la hora de hoy.</p>
 </section>
 {% endblock %}

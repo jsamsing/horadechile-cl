@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block main %}
+{% set P = p.pais %}
+<section class="relojes" aria-label="Hora en {{ P.pais }}">
+<div class="reloj prin" data-tz="{{ P.tz }}"><p class="zn">{{ P.pais }}</p><p class="hh"><time data-h>--:--:--</time></p><p class="fd" data-f>&nbsp;</p><p class="ut"><span data-u>UTC</span></p></div>
+</section>
+<p class="dif" data-difp data-tz="{{ P.tz }}">Diferencia con Chile continental: <b data-dd>…</b></p>
+<p class="corta">{{ p.texto }}</p>
+{% include "_avisos.html" %}
+<section><h2>Equivalencias de hora entre Chile y {{ P.pais.split(" (")[0] }}</h2>
+<table class="tb" data-eq data-tz="{{ P.tz }}"><thead><tr><th scope="col">En Chile (Santiago)</th><th scope="col">En {{ P.pais.split(" (")[0] }}</th></tr></thead><tbody>
+{% for h in ["08:00","10:00","13:00","16:00","19:00","22:00"] %}<tr><th scope="row">{{ h }}</th><td data-eqh="{{ h }}">—</td></tr>{% endfor %}</tbody></table>
+<p class="mut">Calculado con la diferencia de hoy. Revisa también la <a href="/diferencia-horaria/">diferencia horaria con otros países</a> y la <a href="/">hora en Chile ahora</a>.</p>
+</section>
+{% endblock %}
