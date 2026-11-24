@@ -39,7 +39,7 @@ RED = [
     {"url": "https://horadechile.cl/", "nombre": "Hora de Chile", "texto": "Hora exacta y cambio de hora", "vivo": True},
     {"url": "https://feriados-de-chile.cl/", "nombre": "Feriados de Chile", "texto": "Feriados y fines de semana largos", "vivo": True},
     {"url": "https://calculadora-chile.cl/", "nombre": "Calculadora Chile", "texto": "Sueldo líquido, IVA, UF y más", "vivo": False},
-    {"url": "https://formatos-chile.cl/", "nombre": "Formatos Chile", "texto": "Cartas, contratos y formularios", "vivo": False},
+    {"url": "https://formatos-chile.cl/", "nombre": "Formatos Chile", "texto": "Cartas y documentos listos para usar", "vivo": True},
 ]
 
 # Avisos de la casa (solo proyectos propios autorizados: searchlab.cl y Bifrok; resuelvealtiro.cl cuando esté publicado)
