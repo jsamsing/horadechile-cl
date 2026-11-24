@@ -6,7 +6,7 @@ Revisar cada vez que el Gobierno publique un decreto nuevo (y `REVISADO`)."""
 DOMINIO = "https://horadechile.cl"
 MARCA = "Hora de Chile"
 REVISADO = "2026-11-23"
-GA4 = ""  # se completa al crear la propiedad (solo carga en el host horadechile.cl)
+GA4 = "G-LZQ9PGKFC7"  # se completa al crear la propiedad (solo carga en el host horadechile.cl)
 INDEXNOW_KEY = "7c1f4a9e2b6d48c3a5e0f9b1d2c3e4f5"
 
 # Cambios de hora de Chile continental e Isla de Pascua (instante UTC exacto, verano = UTC-3 continental)
