@@ -145,3 +145,9 @@ for _p in PAISES_PAG:
         "title": f"Hora en {_n} ahora y diferencia horaria con Chile" if len(_n) > 5 else f"Hora en {_n} ahora y la diferencia horaria con Chile",
         "desc": f"Qué hora es en {_n} ahora, en vivo, y cuántas horas de diferencia hay con Chile hoy. Huso horario, horario de verano y equivalencias de hora.",
         "h1": f"Hora en {_n}", "corta": None, "texto": _p["texto"], "faqs": _p["faq"]})
+
+
+# 404 amigable (Johans 2026-11-26): layout completo, buscador, enlaces más usados, noindex; build.py lo deja en /404.html (ErrorDocument)
+PAGINAS.append({"path": "/404/", "tpl": "404.html", "noindex": True, "title": "Página no encontrada | " + MARCA,
+    "desc": "La página que buscas no existe o cambió de dirección. Revisa la hora oficial de Chile, el cambio de hora o la diferencia horaria.",
+    "h1": "Esta hora no existe en el reloj", "buscar": [[x["h1"], x["path"]] for x in PAGINAS if not x.get("noindex")]})

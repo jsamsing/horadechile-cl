@@ -75,3 +75,5 @@ h2{font-size:1.3rem;color:var(--ink);margin:34px 0 10px}
 .red a{min-height:48px}
 .paises a,.largos a{display:inline-flex;align-items:center;min-height:48px}
 }
+
+.sis{text-align:center}.sis .ilus{display:block;margin:6px auto 4px;height:auto}.sis form{max-width:440px;margin:16px auto 4px;text-align:left}.sis form label{display:block;font-weight:700;margin:0 0 6px}.sis input{box-sizing:border-box;width:100%;min-height:48px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--card);color:var(--tx)}.sis-l{list-style:none;padding:0;margin:12px 0;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}.sis-l a{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card);text-decoration:none}.sis-b .btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;background:var(--ink);color:#fff;font-weight:700;text-decoration:none}

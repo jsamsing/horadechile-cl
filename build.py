@@ -82,6 +82,9 @@ def main():
         og(p, DIST / "og" / f"{p['slug']}.jpg")
         if not p.get("noindex"): urls.append(C.DOMINIO + p["path"])
     validas = {p["path"] for p in C.PAGINAS}
+    n404 = DIST / "404" / "index.html"  # 404 real: /404.html (ErrorDocument), sin canonical ni carpeta /404/
+    (DIST / "404.html").write_text(re.sub(r'<link rel="canonical"[^>]*>\n?', '', n404.read_text())); shutil.rmtree(DIST / "404")
+    validas.discard("/404/")
     for f in DIST.rglob("*.html"):
         for h in re.findall(r'href="(/[^"#?]*)"', f.read_text()):
             if h not in validas and not (DIST / h.strip("/")).is_file() and h != "/favicon.svg": errores.append(f"enlace roto {h} en {f}")
@@ -99,7 +102,7 @@ def main():
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\\. [NC]
 RewriteRule ^(.*)$ https://horadechile.cl/$1 [R=301,L]
-ErrorDocument 404 /
+ErrorDocument 404 /404.html
 <IfModule mod_headers.c>
 Header always set X-Content-Type-Options "nosniff"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"

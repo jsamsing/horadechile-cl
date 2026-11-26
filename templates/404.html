@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="sis"><svg class="ilus" viewBox="0 0 140 124" width="140" height="124" role="img" aria-label="Mascota del sitio buscando la página"><circle cx="70" cy="62" r="44" fill="#fff" stroke="#0e2440" stroke-width="6"/><path d="M70 30v6M70 88v6M38 62h6M96 62h6" stroke="#0e2440" stroke-width="4" stroke-linecap="round"/><path d="M70 62V42M70 62l14 8" stroke="#f5b400" stroke-width="5" stroke-linecap="round"/><circle cx="56" cy="56" r="3.5" fill="#0e2440"/><circle cx="84" cy="56" r="3.5" fill="#0e2440"/><path d="M60 76q10 7 20 0" fill="none" stroke="#0e2440" stroke-width="3.5" stroke-linecap="round"/><path d="M34 26l-10-10M106 26l10-10" stroke="#1f5fbf" stroke-width="6" stroke-linecap="round"/></svg>
+<p class="lead">La dirección cambió o tiene un error de tipeo. Busca lo que necesitas o parte por lo más usado.</p>
+<form role="search" onsubmit="return false"><label for="q404">¿Qué buscabas?</label><input id="q404" type="search" autocomplete="off" placeholder="Ej.: cambio de hora, Argentina, Isla de Pascua"></form>
+<ul class="sis-l" id="r404" aria-live="polite"></ul>
+<h2>Lo más usado</h2>
+<ul class="sis-l">{% for n, u in p.buscar[:8] %}<li><a href="{{ u }}">{{ n }}</a></li>{% endfor %}</ul>
+<p class="sis-b"><a class="btn" href="/">Ir al inicio</a></p></div>
+<script>(function(){var L={{ p.buscar|tojson }},q=document.getElementById("q404"),r=document.getElementById("r404");
+function n(s){return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")}
+function ver(t){var w=n(t).split(/[^a-z0-9]+/).filter(function(x){return x.length>2});r.innerHTML="";if(!w.length)return;
+L.map(function(p){var k=n(p[0]+" "+p[1]),s=0;w.forEach(function(x){if(k.indexOf(x)>=0)s++});return[s,p]}).filter(function(x){return x[0]}).sort(function(a,b){return b[0]-a[0]}).slice(0,8)
+.forEach(function(x){var li=document.createElement("li"),a=document.createElement("a");a.href=x[1][1];a.textContent=x[1][0];li.appendChild(a);r.appendChild(li)})}
+q.addEventListener("input",function(){ver(q.value)});ver(location.pathname.replace(/[\/-]+/g," "))})();</script>
+{% endblock %}
