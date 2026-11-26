@@ -34,8 +34,9 @@
 </main>
 <footer class="ft"><div class="wrap">
 <p><a href="/"><b>Hora de Chile</b></a> · Hora oficial de Chile y cambios de hora, explicados simple.</p>
-<p><a href="/cambio-de-hora/">Cambio de hora 2027</a> · <a href="/diferencia-horaria/">Diferencia horaria</a> · <a href="/privacidad/">Privacidad</a> · <button type="button" class="lnk" onclick="ckShow()">Preferencias de cookies</button></p>
+<p><a href="/cambio-de-hora/">Cambio de hora 2027</a> · <a href="/diferencia-horaria/">Diferencia horaria</a> · <a href="/privacidad/">Privacidad y datos personales</a> · <button type="button" class="lnk" onclick="ckShow()">Preferencias de cookies</button></p>
 <p class="mut">Fuente: Decreto Supremo N.º 98 del Ministerio del Interior (2026) y base de datos de husos horarios IANA. Revisado el {{ REVISADO_TXT }}. Sitio independiente; no es un organismo del Estado.</p>
+{% include "_tech_footer.html" %}
 </div></footer>
 <div id="ck" class="ck" hidden><p>Usamos cookies de medición (Google Analytics) solo si aceptas.</p><button type="button" onclick="ckSet(1)">Aceptar</button><button type="button" class="sec" onclick="ckSet(0)">Rechazar</button></div>
 <script>{{ JS|safe }}</script>

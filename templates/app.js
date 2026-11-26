@@ -20,9 +20,10 @@ s.querySelector('[data-cd]').textContent=dd+' días, '+hh+' h '+mm+' min '+ss+' 
 tick();setInterval(tick,1000);
 // Consentimiento y GA4 (solo en el dominio real y si acepta)
 window.ckShow=function(){document.getElementById('ck').hidden=false};
-window.ckSet=function(v){try{localStorage.setItem('hc_ck',v?'g':'d')}catch(e){}document.getElementById('ck').hidden=true;if(v)ga()};
+window.ckSet=function(v){try{localStorage.setItem('hc_ck',v?'g':'d')}catch(e){}document.getElementById('ck').hidden=true;if(v)ga();else if(window.gtag)gtag('consent','update',{analytics_storage:'denied'})};
 function ga(){if(!GA||location.hostname!=='horadechile.cl'||window.gtag)return;var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+GA;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',GA)}
 var k=null;try{k=localStorage.getItem('hc_ck')}catch(e){}
 if(k==='g')ga();else if(!k&&GA)setTimeout(ckShow,1500);
-document.addEventListener('click',function(e){var a=e.target.closest('[data-ev]');if(a&&window.gtag)gtag('event',a.dataset.ev,{cta_label:a.dataset.label})});
+// Clics: todo enlace o botón manda cta_click con etiqueta y zona; los avisos siguen con aviso_click y los eventos propios (red_click, formato_*) se mantienen
+document.addEventListener('click',function(e){var a=e.target.closest('a,button');if(!a||!window.gtag||a.closest('#ck'))return;var z=a.closest('.avisos')?'aviso':a.closest('.migas')?'migas':a.closest('header')?'menú':a.closest('footer')?'footer':'cuerpo',l=(a.dataset.label||a.getAttribute('aria-label')||a.textContent||'').replace(/\s+/g,' ').trim().slice(0,80),n=a.dataset.ev||'cta_click';gtag('event',n,{cta_label:l,cta_zone:z});if(n!=='cta_click'&&n!=='aviso_click')gtag('event','cta_click',{cta_label:l,cta_zone:z})});
 })();

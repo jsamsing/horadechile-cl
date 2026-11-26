@@ -61,3 +61,17 @@ h2{font-size:1.3rem;color:var(--ink);margin:34px 0 10px}
 .dif{font-size:1.1rem;margin:12px 0 0}
 .paises{columns:3 160px;padding-left:18px}.paises li{margin:4px 0}
 .av-red{position:absolute;top:8px;right:10px;font-size:.68rem;letter-spacing:.02em;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.14);color:rgba(255,255,255,.85);z-index:1}
+/* Logos de tecnologías en el footer (protocolo de logos, 2026-11-26) */
+.ftech{list-style:none;padding:0;margin:16px 0 4px;display:flex;flex-wrap:wrap;gap:8px}
+.ftech a{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 16px;border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;font-weight:600;font-size:.9rem}
+.ftech svg{flex:none}.ft .ftech-n{margin:4px 0 0;font-size:.85rem}
+/* Móvil: texto de 14 px o más y objetivos táctiles de 48 px (2026-11-26) */
+@media(max-width:700px){
+.migas,.ut,.fd,.mut,.av-red,.av-tx small,.tb thead th,.ft,.ft .ftech-n,.ftech a{font-size:14px}
+.migas a,.ft p a,.ft .lnk{display:inline-flex;align-items:center;min-height:48px}
+.menu-t{height:48px}.logo{min-height:48px}small{font-size:14px}
+.ck button{min-height:48px}
+.faq summary{min-height:48px;padding:10px 0}
+.red a{min-height:48px}
+.paises a,.largos a{display:inline-flex;align-items:center;min-height:48px}
+}

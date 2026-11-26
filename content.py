@@ -91,9 +91,9 @@ PAGINAS = [
     },
     {
         "path": "/privacidad/", "tpl": "legal.html", "noindex": True,
-        "title": "Privacidad y cookies de Hora de Chile",
-        "desc": "Cómo trata Hora de Chile los datos de quienes visitan el sitio: medición de visitas con consentimiento y sin datos personales.",
-        "h1": "Privacidad y cookies",
+        "title": "Privacidad y datos personales de Hora de Chile",
+        "desc": "Cómo trata Hora de Chile tus datos según la Ley 21.719: sin registro, medición de visitas solo con tu consentimiento y cómo ejercer tus derechos.",
+        "h1": "Privacidad y datos personales",
     },
 ]
 
