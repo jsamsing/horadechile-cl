@@ -91,7 +91,7 @@ def main():
     (DIST / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "".join(f"  <url><loc>{u}</loc><lastmod>{C.REVISADO}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     (DIST / "robots.txt").write_text("User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nDisallow: /\n\n" for b in ["GPTBot", "CCBot", "Google-Extended", "anthropic-ai", "ClaudeBot", "Bytespider", "meta-externalagent", "Applebot-Extended"])
-        + "Content-Signal: search=yes, ai-input=yes, ai-train=no\n\nSitemap: " + C.DOMINIO + "/sitemap.xml\n")
+        + "\nSitemap: " + C.DOMINIO + "/sitemap.xml\n")
     (DIST / "llms.txt").write_text(f"# {C.MARCA}\n\n> Hora oficial de Chile en vivo (continental, Aysen y Magallanes, Isla de Pascua), fechas del cambio de hora segun el Decreto Supremo 98 de 2026 y diferencia horaria con otros paises. Sitio independiente, Chile.\n\nLast updated: {C.REVISADO}\n\n## Datos clave\n- Chile continental: UTC-4 en invierno, UTC-3 en verano.\n- Aysen y Magallanes: UTC-3 todo el ano.\n- Isla de Pascua: UTC-6 en invierno, UTC-5 en verano.\n- Proximo cambio: 24:00 del sabado 3 de abril de 2027, se atrasa una hora.\n\n## Paginas\n"
         + "".join(f"- [{p['h1']}]({C.DOMINIO}{p['path']}): {p['desc']}\n".encode("ascii", "ignore").decode() for p in C.PAGINAS if not p.get("noindex"))
         + f"\n## Optional\n- [Sitemap]({C.DOMINIO}/sitemap.xml)\n")
